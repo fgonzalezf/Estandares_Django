@@ -1,0 +1,10 @@
+from django.shortcuts import render
+from django.views.generic import TemplateView
+
+class Home(TemplateView):
+    template_name = "index.html"
+
+class Tematicas(TemplateView):
+    template_name = "tematicas.html"
+
+# Create your views here.
