@@ -1,14 +1,3 @@
-.button {
-    display: inline-block;
-    padding: 1em;
-    background-color: #79BD9A;
-    text-decoration: none;
-    color: white;
-    text-align: center;
-    width: 100%;
-    position: relative;
-}
-
 .button1 {
     display: inline-block;
     padding: 1em;
@@ -20,6 +9,8 @@
     left: 20%;
     position: relative;
 }
+
+
 .button2 {
     display: inline-block;
     padding: 1em;
@@ -63,6 +54,105 @@
     width: 100%;
     position: relative;
 }
+
+
+.button6 {
+    display: inline-block;
+    padding: 1em;
+    background-color: #79BD9A;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+.button7 {
+    display: inline-block;
+    padding: 1em;
+    background-color: #79BD9A;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+.button8 {
+    display: inline-block;
+    padding: 1em;
+    background-color: #79BD9A;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+.button9 {
+    display: inline-block;
+    padding: 1em;
+    background-color: #79BD9A;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+.button10 {
+    display: inline-block;
+    padding: 1em;
+    background-color: #79BD9A;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+.button11 {
+    display: inline-block;
+    padding: 1em;
+    background-color: #79BD9A;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+
+.button1:before {
+background: #fbcb09;
+}
+.button2:before {
+background: #398439;
+}
+.button3:before {
+background: #1c94c4;
+}
+.button4:before {
+background:#aaaaaa;
+}
+.button5:before {
+background: #2196f3;
+}
+.button6:before {
+background: #fbcb09;
+}
+.button7:before {
+background: #398439;
+}
+.button8:before {
+background: #1c94c4;
+}
+.button9:before {
+background:#aaaaaa;
+}
+.button10:before {
+background: #2196f3;
+}
+.button11:before {
+background: #8ca448;
+}
+
+
+
 .contenedor {
     width: 300px;
     margin: 0 auto;
