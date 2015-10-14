@@ -14,7 +14,20 @@ class ListaDocumentos(ListView):
         busqueda = request.GET.get('tipo', '').upper()
         print busqueda
         Documentos= Documento.objects.filter(tipo__contains=busqueda)
-        return render(request,'consulta.html',{'Documentos':Documentos})
+        if Documentos:
+            datos=[]
+            for documento in Documentos:
+                versionesAnt= Versiones.objects.filter(codigo=documento.pk)
+                datos.append(dict([(documento,versionesAnt)]))
+            for dato in datos:
+                print dato
+                for documento,version in dato.items():
+                    print documento.nombre
+                    for doc in version:
+                        print doc.url
+
+
+        return render(request,'consulta.html',{'datos':datos})
 
 
 # Create your views here.

@@ -38,17 +38,24 @@
     </tfoot>
 
     <tbody>
-        {% for documento in Documentos%}
+        {% for dato in datos%}
+            {% for doc,ver in dato.items %}
         <tr>
-           <td>{{ documento.nombre }}</td>
-           <td>{{ documento.tipo}}</td>
-           <td>{{ documento.codigo }}</td>
-            <td>{{ documento.fechaPublicacion }}</td>
-           <td>{{ documento.vigencia }}</td>
-           <td>{{ documento.otrasVersiones }}</td>
-           <td>{{ documento.discusion }}</td>
-           <td><a href="{{ documento.url }}">Descarga </a> </td>
+           <td>{{ doc.nombre }}</td>
+           <td>{{ doc.tipo}}</td>
+           <td>{{ doc.codigo }}</td>
+            <td>{{ doc.fechaPublicacion }}</td>
+           <td>{{ doc.vigencia }}</td>
+           <td>{% for version in ver %}
+               {{ version.url }}
+                {% endfor %}
+
+               </td>
+           <td>{{ doc.discusion }}</td>
+           <td><a href="{{ doc.url }}">Descarga </a> </td>
         </tr>
+            {% endfor %}
+
         {% endfor %}
 
     </tbody>
