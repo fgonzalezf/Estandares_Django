@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView,ListView
-from .models import Documento,Versiones
+from django.views.generic import TemplateView,ListView,CreateView
+from .models import Documento,Versiones,FormularioConsulta
+from django.core.urlresolvers import reverse_lazy
 class Home(TemplateView):
     template_name = "index.html"
 
@@ -14,8 +15,8 @@ class ListaDocumentos(ListView):
         busqueda = request.GET.get('tipo', '').upper()
         print busqueda
         Documentos= Documento.objects.filter(tipo__contains=busqueda)
+        datos=[]
         if Documentos:
-            datos=[]
             for documento in Documentos:
                 versionesAnt= Versiones.objects.filter(codigo=documento.pk)
                 datos.append(dict([(documento,versionesAnt)]))
@@ -26,8 +27,12 @@ class ListaDocumentos(ListView):
                     for doc in version:
                         print doc.url
 
-
         return render(request,'consulta.html',{'datos':datos})
 
+class FormularioConsultaView(CreateView):
+    template_name = 'Formulario.html'
+    model = FormularioConsulta
+    fields = '__all__'
+    success_url = reverse_lazy('Guardado')
 
 # Create your views here.

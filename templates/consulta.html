@@ -3,7 +3,7 @@
 {% block titulopagina %}Listado Documentos{% endblock %}
 {% block Contenido%}
 
-<div>
+<div style="text-align: center; position: relative; padding: 6em;">
 <style type="text/css">
     table {
        border:1px solid black;
@@ -47,11 +47,11 @@
             <td>{{ doc.fechaPublicacion }}</td>
            <td>{{ doc.vigencia }}</td>
            <td>{% for version in ver %}
-               {{ version.url }}
+               <a href="{{ version.url }}" >"Ver_"{{ version.nombre }}__{{ version.fecha }}</a></BR>
                 {% endfor %}
 
                </td>
-           <td>{{ doc.discusion }}</td>
+           <td>{% if doc.discusion == "SI" %} <a href="/formulario">Enlace </a>  {% else %} NO {% endif %}</td>
            <td><a href="{{ doc.url }}">Descarga </a> </td>
         </tr>
             {% endfor %}
