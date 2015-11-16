@@ -26,7 +26,7 @@
            <th>Fecha de Publicación</th>
            <th>Vigencia</th>
             <th>Otras Versiones</th>
-           <th>Documento En Discución</th>
+           <th>Documento En Discusión</th>
             <th>Link De Descarga</th>
          </tr>
     </thead>
@@ -51,7 +51,7 @@
                 {% endfor %}
 
                </td>
-           <td>{% if doc.discusion == "SI" %} <a href="/formulario">Enlace </a>  {% else %} NO {% endif %}</td>
+           <td>{% if doc.discusion == "SI" %} <a href="/formulario">Ver Consulta Publica </a>  {% else %} NO {% endif %}</td>
            <td><a href="{{ doc.url }}">Descarga </a> </td>
         </tr>
             {% endfor %}

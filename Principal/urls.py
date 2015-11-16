@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from Estandares.views import Home,Tematicas,ListaDocumentos,FormularioConsultaView
+from Estandares.views import Home,Tematicas,ListaDocumentos,FormularioConsultaView,Busqueda
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -24,5 +24,8 @@ urlpatterns = [
     url(r'^consulta',ListaDocumentos.as_view()),
     url(r'^formulario',FormularioConsultaView.as_view(),name= "Formulario_Consulta_publica"),
     url(r'^Guardado',FormularioConsultaView.as_view(),name="Guardado"),
+    url(r'^busqueda',Busqueda.as_view(),name="Busqueda"),
+
+
 
 ]

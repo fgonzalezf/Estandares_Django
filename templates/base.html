@@ -55,6 +55,24 @@
             <li><a href="/">Inicio</a></li>
             <li><a href="#about">Contactenos</a></li>
             <li><a href="#contact">Acerca de</a></li>
+
+                              <form class="form-inline" role="form" action="/busqueda/" method="post">
+                                        {% csrf_token %}
+                                        <div style="float: right; padding-top: 8px " >
+                                            <input style="width: 300px" type="text" class="form-control" placeholder="Buscar por nombre o código" name="buscar">
+
+                                        </div>
+                                        <div class="form-group col-xs-1" style="float: right ; padding-top: 8px; width: 5% ">
+                                              <span class="input-group-btn">
+                                                    <button class="form-control" type="submit">
+                                                        <span class="glyphicon glyphicon-search"></span>
+                                                    </button>
+                                              </span>
+                                          </div>
+
+                              </form>
+
+
               <!--
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -86,11 +104,11 @@
            <br>
            <br>
            <div class="contenedor">
-               <a href="/tematicas?tipo=Manuales" class="hvr-rectangle-in button1">Manuales</a>
-               <a href="/tematicas?tipo=Procesos" class="hvr-rectangle-in button2">Procesos</a>
-               <a href="/tematicas?tipo=Procedimientos" class="hvr-rectangle-in button3">Procedimientos y Estandares</a>
-               <a href="/tematicas?tipo=Guias" class="hvr-rectangle-in button4">Guias e Instrucciones de Trabajo</a>
-               <a href="/tematicas?tipo=Registros" class="hvr-rectangle-in button5">Registros</a>
+               <a href="/tematicas?tipo=Manual" class="hvr-rectangle-in button1">Manuales</a>
+               <a href="/tematicas?tipo=Proceso" class="hvr-rectangle-in button2">Procesos</a>
+               <a href="/tematicas?tipo=Procedimiento" class="hvr-rectangle-in button3">Procedimientos y Estandares</a>
+               <a href="/tematicas?tipo=Guia" class="hvr-rectangle-in button4">Guias e Instrucciones de Trabajo</a>
+               <a href="/tematicas?tipo=Registro" class="hvr-rectangle-in button5">Registros</a>
 
            </div>
        {% endblock %}

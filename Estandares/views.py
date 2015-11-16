@@ -12,18 +12,17 @@ class ListaDocumentos(ListView):
     template_name = "consulta.html"
     model = Documento
     def get(self, request, *args, **kwargs):
-        busqueda = request.GET.get('tipo', '').upper()
-        print busqueda
-        Documentos= Documento.objects.filter(tipo__contains=busqueda)
+        busquedaTipo = request.GET.get('tipo', '').upper()
+        busquedaTematica= request.GET.get('tema', '').upper()
+        Documentos= Documento.objects.filter(tipo__contains=busquedaTipo)
+        Documentosfin= Documentos.filter(tematica__contains=busquedaTematica)
         datos=[]
-        if Documentos:
-            for documento in Documentos:
+        if Documentosfin:
+            for documento in Documentosfin:
                 versionesAnt= Versiones.objects.filter(codigo=documento.pk)
                 datos.append(dict([(documento,versionesAnt)]))
             for dato in datos:
-                print dato
                 for documento,version in dato.items():
-                    print documento.nombre
                     for doc in version:
                         print doc.url
 
@@ -34,5 +33,25 @@ class FormularioConsultaView(CreateView):
     model = FormularioConsulta
     fields = '__all__'
     success_url = reverse_lazy('Guardado')
+
+class Busqueda(TemplateView):
+    def post(self,request,*args,**kwargs):
+        buscar = request.POST['buscar']
+        nombreDoc = Documento.objects.filter(nombre__contains=buscar)
+        codigoDoc= Documento.objects.filter(codigo__contains=buscar)
+        documentos=[]
+        datos=[]
+        if nombreDoc:
+            for doc in nombreDoc:
+                documentos.append(doc)
+        elif codigoDoc:
+            for doc in codigoDoc:
+                documentos.append(doc)
+
+        if documentos:
+            for documento in documentos:
+                versionesAnt= Versiones.objects.filter(codigo=documento.pk)
+                datos.append(dict([(documento,versionesAnt)]))
+        return render(request,"Busqueda.html",{'datos':datos})
 
 # Create your views here.
