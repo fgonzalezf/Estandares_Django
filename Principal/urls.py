@@ -19,12 +19,12 @@ from Estandares.views import Home,Tematicas,ListaDocumentos,FormularioConsultaVi
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', Home.as_view()),
-    url(r'^tematicas',Tematicas.as_view()),
-    url(r'^consulta',ListaDocumentos.as_view()),
-    url(r'^formulario',FormularioConsultaView.as_view(),name= "Formulario_Consulta_publica"),
-    url(r'^Guardado',FormularioConsultaView.as_view(),name="Guardado"),
-    url(r'^busqueda',Busqueda.as_view(),name="Busqueda"),
+    url(r'^Estandares/$', Home.as_view(), name= "Home"),
+    url(r'^Estandares/tematicas',Tematicas.as_view(), name="Tematicas"),
+    url(r'^Estandares/consulta',ListaDocumentos.as_view(),name="Consulta"),
+    url(r'^Estandares/formulario',FormularioConsultaView.as_view(),name= "Formulario_Consulta_publica"),
+    url(r'^Estandares/Guardado',FormularioConsultaView.as_view(),name="Guardado"),
+    url(r'^Estandares/busqueda',Busqueda.as_view(),name="Busqueda"),
 
 
 

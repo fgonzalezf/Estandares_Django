@@ -52,11 +52,11 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="/">Inicio</a></li>
+            <li><a href={% url 'Home' %}>Inicio</a></li>
             <li><a href="#about">Contactenos</a></li>
             <li><a href="#contact">Acerca de</a></li>
 
-                              <form class="form-inline" role="form" action="/busqueda/" method="post">
+                              <form class="form-inline" role="form" action="{% url 'Busqueda' %}" method="post">
                                         {% csrf_token %}
                                         <div style="float: right; padding-top: 8px " >
                                             <input style="width: 300px" type="text" class="form-control" placeholder="Buscar por nombre o código" name="buscar">
@@ -104,11 +104,11 @@
            <br>
            <br>
            <div class="contenedor">
-               <a href="/tematicas?tipo=Manual" class="hvr-rectangle-in button1">Manuales</a>
-               <a href="/tematicas?tipo=Proceso" class="hvr-rectangle-in button2">Procesos</a>
-               <a href="/tematicas?tipo=Procedimiento" class="hvr-rectangle-in button3">Procedimientos y Estandares</a>
-               <a href="/tematicas?tipo=Guia" class="hvr-rectangle-in button4">Guias e Instrucciones de Trabajo</a>
-               <a href="/tematicas?tipo=Registro" class="hvr-rectangle-in button5">Registros</a>
+               <a href={% url 'Tematicas' %}?tipo=Manual class="hvr-rectangle-in button1">Manuales</a>
+               <a href={% url 'Tematicas' %}?tipo=Proceso class="hvr-rectangle-in button2">Procesos</a>
+               <a href={% url 'Tematicas' %}?tipo=Procedimiento class="hvr-rectangle-in button3">Procedimientos y Estandares</a>
+               <a href={% url 'Tematicas' %}?tipo=Guia class="hvr-rectangle-in button4">Guias e Instrucciones de Trabajo</a>
+               <a href={% url 'Tematicas' %}?tipo=Registro class="hvr-rectangle-in button5">Registros</a>
 
            </div>
        {% endblock %}
